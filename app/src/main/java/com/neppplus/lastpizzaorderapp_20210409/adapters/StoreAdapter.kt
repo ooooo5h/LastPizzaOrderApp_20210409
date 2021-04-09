@@ -30,7 +30,7 @@ class StoreAdapter(
         val logoUrl = row.findViewById<ImageView>(R.id.logoUrl)
         val nameTxt = row.findViewById<ImageView>(R.id.nameTxt)
 
-//        왜 text에 오류가 뜨지???
+//        왜 text에 오류가 뜨지????
         nameTxt.text = storeData.name
 
 
