@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.neppplus.lastpizzaorderapp_20210409.R
 import com.neppplus.lastpizzaorderapp_20210409.datas.Store
 import java.util.zip.Inflater
@@ -27,11 +29,14 @@ class StoreAdapter(
 
         val storeData = mList[position]
 
-        val logoUrl = row.findViewById<ImageView>(R.id.logoUrl)
-        val nameTxt = row.findViewById<ImageView>(R.id.nameTxt)
+        val logoImg = row.findViewById<ImageView>(R.id.logoImg)
+        val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
 
-//        왜 text에 오류가 뜨지????
+
         nameTxt.text = storeData.name
+
+        Glide.with(mContext).load(storeData.logoUrl).into(logoImg)
+
 
 
         return row

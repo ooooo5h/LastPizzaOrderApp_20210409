@@ -1,11 +1,14 @@
 package com.neppplus.lastpizzaorderapp_20210409.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.neppplus.lastpizzaorderapp_20210409.MainActivity
 import com.neppplus.lastpizzaorderapp_20210409.R
+import com.neppplus.lastpizzaorderapp_20210409.ViewStoreDetailActivity
 import com.neppplus.lastpizzaorderapp_20210409.adapters.StoreAdapter
 import com.neppplus.lastpizzaorderapp_20210409.datas.Store
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,6 +39,14 @@ class PizzaStoreListFragment : Fragment() {
 
         mStoreAdapter = StoreAdapter(activity!!, R.layout.store_list_item, mStoreList)
         storeListView.adapter = mStoreAdapter
+
+        storeListView.setOnItemClickListener { adapterView, view, position, l ->
+            val clickedStore = mStoreList[position]
+
+            val myIntent = Intent(activity, ViewStoreDetailActivity::class.java)
+            myIntent.putExtra("storeInformation", clickedStore)
+            startActivity(myIntent)
+        }
 
 
     }
